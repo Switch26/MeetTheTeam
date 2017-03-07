@@ -24,7 +24,7 @@ class TeamListTableViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 44
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         tableView.register(TeamListTableViewCell.self, forCellReuseIdentifier: "teamMemberCell")
-        tableView.allowsSelection = false
+        tableView.allowsMultipleSelection = false
         
         self.navigationController?.navigationBar.topItem?.title = "Meet the team"
     }
@@ -78,6 +78,16 @@ class TeamListTableViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailsViewController = TeamMemberDetails()
+        detailsViewController.teamMemberToDisplay = dataSource[indexPath.row]
+        
+        let cell = tableView.cellForRow(at: indexPath) as! TeamListTableViewCell
+        detailsViewController.avatarImage = cell.avatarImageView.image!
+        
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
     
 

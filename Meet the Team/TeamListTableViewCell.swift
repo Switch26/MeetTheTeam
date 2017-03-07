@@ -13,16 +13,27 @@ class TeamListTableViewCell: UITableViewCell {
     let avatarImageView = UIImageView()
     var line1TextLabel = UILabel()
     var line2TextLabel = UILabel()
+    var textLabelsStackView = UIStackView()
+    
+    var imageViewHeightConstraint: NSLayoutConstraint?
+    var imageViewWidthConstraint: NSLayoutConstraint?
+    
+    var imageHeightAndWidth = CGFloat(50) {
+        didSet {
+            imageViewHeightConstraint?.isActive = false
+            imageViewHeightConstraint = avatarImageView.heightAnchor.constraint(equalToConstant: imageHeightAndWidth)
+            imageViewHeightConstraint?.isActive = true
+            
+            imageViewWidthConstraint?.isActive = false
+            imageViewWidthConstraint = avatarImageView.widthAnchor.constraint(equalToConstant: imageHeightAndWidth)
+            imageViewWidthConstraint?.isActive = true
+            
+            avatarImageView.layer.cornerRadius = imageHeightAndWidth / 2
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -34,10 +45,13 @@ class TeamListTableViewCell: UITableViewCell {
     func constructUI() {
     
         //Image View
-        let imageSizeHeightAndWidth = CGFloat(50)
-        avatarImageView.heightAnchor.constraint(equalToConstant: imageSizeHeightAndWidth).isActive = true
-        avatarImageView.widthAnchor.constraint(equalToConstant: imageSizeHeightAndWidth).isActive = true
-        avatarImageView.layer.cornerRadius = imageSizeHeightAndWidth / 2
+        imageViewHeightConstraint = avatarImageView.heightAnchor.constraint(equalToConstant: imageHeightAndWidth)
+        imageViewHeightConstraint?.isActive = true
+        
+        imageViewWidthConstraint = avatarImageView.widthAnchor.constraint(equalToConstant: imageHeightAndWidth)
+        imageViewWidthConstraint?.isActive = true
+        
+        avatarImageView.layer.cornerRadius = imageHeightAndWidth / 2
         avatarImageView.clipsToBounds = true
         avatarImageView.contentMode = .scaleToFill
         
@@ -49,10 +63,9 @@ class TeamListTableViewCell: UITableViewCell {
         line2TextLabel.textAlignment = .left
         
         // StackViews
-        let textLabelsStackView = UIStackView()
         textLabelsStackView.axis = UILayoutConstraintAxis.vertical
         textLabelsStackView.alignment = .leading
-        textLabelsStackView.distribution = .fill
+        textLabelsStackView.distribution = UIStackViewDistribution.fill
         textLabelsStackView.spacing = 8
         
         textLabelsStackView.addArrangedSubview(line1TextLabel)
@@ -80,7 +93,6 @@ class TeamListTableViewCell: UITableViewCell {
         let bottomConstraint = NSLayoutConstraint(item: imageAndTextLabelsStackView, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: self.contentView, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: -8)
         
         let rightConstraint = NSLayoutConstraint(item: imageAndTextLabelsStackView, attribute: NSLayoutAttribute.right, relatedBy: NSLayoutRelation.equal, toItem: self.contentView, attribute: NSLayoutAttribute.right, multiplier: 1, constant: -8)
-        
         
         self.contentView.addConstraints([topConstraint, leftConstraint, bottomConstraint, rightConstraint])
 
