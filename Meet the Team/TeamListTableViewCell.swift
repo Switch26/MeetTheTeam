@@ -12,6 +12,9 @@ class TeamListTableViewCell: UITableViewCell {
  
     var teamMemberToDisplay = TeamMember(withID: "Unknown")
     
+    let avatarImageView = UIImageView()
+    var line1TextLabel = UILabel()
+    var line2TextLabel = UILabel()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -27,27 +30,27 @@ class TeamListTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        
+        constructUI()
+    }
+    
+    func constructUI() {
+    
         //Image View
-        let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "avatarGenericSmall")
-        imageView.contentMode = .scaleToFill
+        avatarImageView.image = #imageLiteral(resourceName: "avatarGenericSmall")
+        avatarImageView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
+        avatarImageView.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
+        avatarImageView.contentMode = .scaleToFill
         
         //Text Labels
-        let line1TextLabel = UILabel()
-        line1TextLabel.text  = "FirstName LastName"
+        line1TextLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 20)
         line1TextLabel.textAlignment = .left
-        //line1TextLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let line2TextLabel = UILabel()
-        line2TextLabel.text  = "Occupation"
+        line2TextLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 14)
         line2TextLabel.textAlignment = .left
-        //line2TextLabel.translatesAutoresizingMaskIntoConstraints = false
-
         
-        
+        // StackViews
         let textLabelsStackView = UIStackView()
-        textLabelsStackView.axis = .vertical
+        textLabelsStackView.axis = UILayoutConstraintAxis.vertical
         textLabelsStackView.alignment = .leading
         textLabelsStackView.distribution = .fill
         textLabelsStackView.spacing = 8
@@ -57,12 +60,12 @@ class TeamListTableViewCell: UITableViewCell {
         
         
         let imageAndTextLabelsStackView = UIStackView()
-        textLabelsStackView.axis = .horizontal
-        textLabelsStackView.alignment = .top
-        textLabelsStackView.distribution = .fill
-        textLabelsStackView.spacing = 8
+        imageAndTextLabelsStackView.axis = .horizontal
+        imageAndTextLabelsStackView.alignment = .top
+        imageAndTextLabelsStackView.distribution = .fill
+        imageAndTextLabelsStackView.spacing = 8
         
-        imageAndTextLabelsStackView.addArrangedSubview(imageView)
+        imageAndTextLabelsStackView.addArrangedSubview(avatarImageView)
         imageAndTextLabelsStackView.addArrangedSubview(textLabelsStackView)
         
         
@@ -80,6 +83,19 @@ class TeamListTableViewCell: UITableViewCell {
         
         
         self.contentView.addConstraints([topConstraint, leftConstraint, bottomConstraint, rightConstraint])
+
+    }
+    
+    func updateUIWith(teamMember member: TeamMember) {
+        
+        let firstName = member.firstName ?? ""
+        let lastName = member.lastName ?? ""
+        line1TextLabel.text = firstName + lastName
+        line2TextLabel.text  = member.title ?? ""
+        
+        if member.avatarURL != nil {
+
+        }
         
     }
 

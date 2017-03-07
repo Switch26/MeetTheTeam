@@ -24,6 +24,7 @@ class TeamListTableViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 44
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         tableView.register(TeamListTableViewCell.self, forCellReuseIdentifier: "teamMemberCell")
+        tableView.allowsSelection = false
         
     }
     
