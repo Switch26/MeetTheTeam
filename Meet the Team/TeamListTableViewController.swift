@@ -14,7 +14,9 @@ class TeamListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         NetworkManager.fetchTeamMembers { (arrayOfTeamMembers, networkManagerError) in
-            // do something
+            
+            print("Array of team members: \(arrayOfTeamMembers)")
+            
         }
         
     }
