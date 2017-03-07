@@ -15,6 +15,8 @@
 		9EB8488F1E6EF00000E74CC1 /* team.json in Resources */ = {isa = PBXBuildFile; fileRef = 9EB8488E1E6EF00000E74CC1 /* team.json */; };
 		9EB848911E6EF07600E74CC1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB848901E6EF07600E74CC1 /* NetworkManager.swift */; };
 		9EB848931E6EF1A000E74CC1 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB848921E6EF1A000E74CC1 /* TeamMember.swift */; };
+		9EE6F7D01E6F095300EE120B /* TeamListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE6F7CF1E6F095300EE120B /* TeamListTableViewCell.swift */; };
+		9EE6F7D21E6F115F00EE120B /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EE6F7D11E6F115F00EE120B /* View.xib */; };
 		A831CF914F780314D0BBC124 /* Pods_Meet_the_Team.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 366B84CBD33B89B0666EB6D9 /* Pods_Meet_the_Team.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		9EB8488E1E6EF00000E74CC1 /* team.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = team.json; sourceTree = "<group>"; };
 		9EB848901E6EF07600E74CC1 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9EB848921E6EF1A000E74CC1 /* TeamMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
+		9EE6F7CF1E6F095300EE120B /* TeamListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamListTableViewCell.swift; sourceTree = "<group>"; };
+		9EE6F7D11E6F115F00EE120B /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		A4CF40601A6111D24E0AA079 /* Pods-Meet the Team.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meet the Team.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meet the Team/Pods-Meet the Team.debug.xcconfig"; sourceTree = "<group>"; };
 		E17068D7520249C311A75268 /* Pods-Meet the Team.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meet the Team.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meet the Team/Pods-Meet the Team.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +92,8 @@
 				9E0E1B9D1E6F03A5000CE207 /* Extensions.swift */,
 				9EB848921E6EF1A000E74CC1 /* TeamMember.swift */,
 				9E629D041E6EEAC20008804D /* TeamListTableViewController.swift */,
+				9EE6F7D11E6F115F00EE120B /* View.xib */,
+				9EE6F7CF1E6F095300EE120B /* TeamListTableViewCell.swift */,
 				9E629CF91E6EE6930008804D /* Assets.xcassets */,
 				9E629CF21E6EE6930008804D /* AppDelegate.swift */,
 				9E629CFB1E6EE6930008804D /* LaunchScreen.storyboard */,
@@ -160,6 +166,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EE6F7D21E6F115F00EE120B /* View.xib in Resources */,
 				9E629CFD1E6EE6930008804D /* LaunchScreen.storyboard in Resources */,
 				9E629CFA1E6EE6930008804D /* Assets.xcassets in Resources */,
 				9EB8488F1E6EF00000E74CC1 /* team.json in Resources */,
@@ -225,6 +232,7 @@
 				9EB848911E6EF07600E74CC1 /* NetworkManager.swift in Sources */,
 				9E629D051E6EEAC20008804D /* TeamListTableViewController.swift in Sources */,
 				9EB848931E6EF1A000E74CC1 /* TeamMember.swift in Sources */,
+				9EE6F7D01E6F095300EE120B /* TeamListTableViewCell.swift in Sources */,
 				9E629CF31E6EE6930008804D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
