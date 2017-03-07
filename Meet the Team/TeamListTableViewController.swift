@@ -26,6 +26,7 @@ class TeamListTableViewController: UITableViewController {
         tableView.register(TeamListTableViewCell.self, forCellReuseIdentifier: "teamMemberCell")
         tableView.allowsSelection = false
         
+        self.navigationController?.navigationBar.topItem?.title = "Meet the team"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,9 +74,7 @@ class TeamListTableViewController: UITableViewController {
         if let url = teamMember.avatarURL {
             
             // Using AlamofireImage category
-            cell.imageView?.af_setImage(withURL: URL(string: url)!, placeholderImage: #imageLiteral(resourceName: "avatarGenericSmall"), imageTransition: .crossDissolve(0.2), completion: { (image) in
-                cell.imageView?.image = cell.imageView?.image?.af_imageRoundedIntoCircle()
-            })
+            cell.avatarImageView.af_setImage(withURL: URL(string: url)!, placeholderImage: #imageLiteral(resourceName: "avatarGenericSmall"), imageTransition: .crossDissolve(0.2))
         }
         
         return cell

@@ -34,12 +34,11 @@ class TeamListTableViewCell: UITableViewCell {
     func constructUI() {
     
         //Image View
-        avatarImageView.image = #imageLiteral(resourceName: "avatarGenericSmall")
-        avatarImageView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        avatarImageView.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
-        avatarImageView.layer.cornerRadius = 25
+        let imageSizeHeightAndWidth = CGFloat(50)
+        avatarImageView.heightAnchor.constraint(equalToConstant: imageSizeHeightAndWidth).isActive = true
+        avatarImageView.widthAnchor.constraint(equalToConstant: imageSizeHeightAndWidth).isActive = true
+        avatarImageView.layer.cornerRadius = imageSizeHeightAndWidth / 2
         avatarImageView.clipsToBounds = true
-        avatarImageView.layer.masksToBounds = false
         avatarImageView.contentMode = .scaleToFill
         
         //Text Labels
@@ -64,7 +63,7 @@ class TeamListTableViewCell: UITableViewCell {
         imageAndTextLabelsStackView.axis = .horizontal
         imageAndTextLabelsStackView.alignment = .top
         imageAndTextLabelsStackView.distribution = .fill
-        imageAndTextLabelsStackView.spacing = 30
+        imageAndTextLabelsStackView.spacing = 16
         
         imageAndTextLabelsStackView.addArrangedSubview(avatarImageView)
         imageAndTextLabelsStackView.addArrangedSubview(textLabelsStackView)
