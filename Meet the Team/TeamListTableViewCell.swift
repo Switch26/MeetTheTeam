@@ -9,9 +9,7 @@
 import UIKit
 
 class TeamListTableViewCell: UITableViewCell {
- 
-    var teamMemberToDisplay = TeamMember(withID: "Unknown")
-    
+   
     let avatarImageView = UIImageView()
     var line1TextLabel = UILabel()
     var line2TextLabel = UILabel()
@@ -75,7 +73,7 @@ class TeamListTableViewCell: UITableViewCell {
         
         let topConstraint = NSLayoutConstraint(item: imageAndTextLabelsStackView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self.contentView, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 8)
         
-        let leftConstraint = NSLayoutConstraint(item: imageAndTextLabelsStackView, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: self.contentView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 8)
+        let leftConstraint = NSLayoutConstraint(item: imageAndTextLabelsStackView, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: self.contentView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 16)
         
         let bottomConstraint = NSLayoutConstraint(item: imageAndTextLabelsStackView, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: self.contentView, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: -8)
         
@@ -84,19 +82,6 @@ class TeamListTableViewCell: UITableViewCell {
         
         self.contentView.addConstraints([topConstraint, leftConstraint, bottomConstraint, rightConstraint])
 
-    }
-    
-    func updateUIWith(teamMember member: TeamMember) {
-        
-        let firstName = member.firstName ?? ""
-        let lastName = member.lastName ?? ""
-        line1TextLabel.text = firstName + lastName
-        line2TextLabel.text  = member.title ?? ""
-        
-        if member.avatarURL != nil {
-
-        }
-        
     }
 
 }
