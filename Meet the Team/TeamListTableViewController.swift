@@ -62,18 +62,22 @@ class TeamListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "teamMemberCell", for: indexPath) as! TeamListTableViewCell
 
-        // Configure the cell...
+        // Configure text
         let teamMember = dataSource[indexPath.row]
         let firstName = teamMember.firstName ?? ""
         let lastName = teamMember.lastName ?? ""
         cell.line1TextLabel.text = firstName + " " + lastName
         cell.line2TextLabel.text  = teamMember.title ?? ""
         
-        
+        // Configure image
         if let url = teamMember.avatarURL {
+            
             // Using AlamofireImage category
-            cell.imageView?.af_setImage(withURL: URL(string: url)!, placeholderImage: #imageLiteral(resourceName: "avatarGenericSmall"))
+            cell.imageView?.af_setImage(withURL: URL(string: url)!, placeholderImage: #imageLiteral(resourceName: "avatarGenericSmall"), imageTransition: .crossDissolve(0.2), completion: { (image) in
+                cell.imageView?.image = cell.imageView?.image?.af_imageRoundedIntoCircle()
+            })
         }
+        
         return cell
     }
     

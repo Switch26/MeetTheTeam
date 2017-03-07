@@ -37,6 +37,9 @@ class TeamListTableViewCell: UITableViewCell {
         avatarImageView.image = #imageLiteral(resourceName: "avatarGenericSmall")
         avatarImageView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         avatarImageView.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
+        avatarImageView.layer.cornerRadius = 25
+        avatarImageView.clipsToBounds = true
+        avatarImageView.layer.masksToBounds = false
         avatarImageView.contentMode = .scaleToFill
         
         //Text Labels
@@ -61,7 +64,7 @@ class TeamListTableViewCell: UITableViewCell {
         imageAndTextLabelsStackView.axis = .horizontal
         imageAndTextLabelsStackView.alignment = .top
         imageAndTextLabelsStackView.distribution = .fill
-        imageAndTextLabelsStackView.spacing = 8
+        imageAndTextLabelsStackView.spacing = 30
         
         imageAndTextLabelsStackView.addArrangedSubview(avatarImageView)
         imageAndTextLabelsStackView.addArrangedSubview(textLabelsStackView)

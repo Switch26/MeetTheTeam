@@ -45,20 +45,16 @@ struct NetworkManager {
         completionHandler(arrayOfTeamMembersToReturn, nil)
     }
     
-    static func downloadImage(atURL givenURL: String, completionHandler: (_ image: UIImage?, NetworkManagerError?) -> Void) {
+    // Didn't use = went with AlamofireImage category
+    static func downloadImage(atURL givenURL: String, completionHandler: @escaping (_ image: UIImage?, NetworkManagerError?) -> Void) {
         
         Alamofire.request(givenURL).responseImage { response in
-            debugPrint(response)
-            
-            print(response.request)
-            print(response.response)
-            debugPrint(response.result)
             
             if let image = response.result.value {
-                print("image downloaded: \(image)")
+                print("Downloaded image \(image)")
+                completionHandler(image, nil)
             }
         }
-
     }
     
     
