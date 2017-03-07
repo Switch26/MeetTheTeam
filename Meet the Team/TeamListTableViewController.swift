@@ -13,12 +13,12 @@ class TeamListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkManager.fetchTeamMembers { (arrayOfTeamMembers, networkManagerError) in
-            
-            print("Array of team members: \(arrayOfTeamMembers)")
-            
-        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        fetchTeamMembersData()
     }
 
 
@@ -34,6 +34,22 @@ class TeamListTableViewController: UITableViewController {
         return 0
     }
 
+    
+    func fetchTeamMembersData() {
+        
+        NetworkManager.fetchTeamMembers { (arrayOfTeamMembers, error) in
+            
+            DispatchQueue.main.async {
+                guard error == nil else {
+                    self.handleNetworkManagerErrors(networkManagerError: error!)
+                    return
+                }
+                
+                print("Array of team members: \(arrayOfTeamMembers)")
+            } 
+        }
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

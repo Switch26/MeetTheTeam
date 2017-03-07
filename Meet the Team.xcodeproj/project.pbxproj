@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E0E1B9E1E6F03A5000CE207 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E1B9D1E6F03A5000CE207 /* Extensions.swift */; };
 		9E629CF31E6EE6930008804D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E629CF21E6EE6930008804D /* AppDelegate.swift */; };
 		9E629CFA1E6EE6930008804D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E629CF91E6EE6930008804D /* Assets.xcassets */; };
 		9E629CFD1E6EE6930008804D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E629CFB1E6EE6930008804D /* LaunchScreen.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		366B84CBD33B89B0666EB6D9 /* Pods_Meet_the_Team.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meet_the_Team.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E0E1B9D1E6F03A5000CE207 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9E629CEF1E6EE6930008804D /* Meet the Team.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meet the Team.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E629CF21E6EE6930008804D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E629CF91E6EE6930008804D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				9EB848901E6EF07600E74CC1 /* NetworkManager.swift */,
+				9E0E1B9D1E6F03A5000CE207 /* Extensions.swift */,
 				9EB848921E6EF1A000E74CC1 /* TeamMember.swift */,
 				9E629D041E6EEAC20008804D /* TeamListTableViewController.swift */,
 				9E629CF91E6EE6930008804D /* Assets.xcassets */,
@@ -218,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E0E1B9E1E6F03A5000CE207 /* Extensions.swift in Sources */,
 				9EB848911E6EF07600E74CC1 /* NetworkManager.swift in Sources */,
 				9E629D051E6EEAC20008804D /* TeamListTableViewController.swift in Sources */,
 				9EB848931E6EF1A000E74CC1 /* TeamMember.swift in Sources */,

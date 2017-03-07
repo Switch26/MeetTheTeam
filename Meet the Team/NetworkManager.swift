@@ -15,6 +15,8 @@ enum NetworkManagerError: Error {
     case parsingJSONError
 }
 
+let jsonFileName = "team" // just the name (no .json needed)
+
 struct NetworkManager {
     
     static func fetchTeamMembers(completionHandler: (_ arrayOfTeamMembers: [TeamMember], NetworkManagerError?) -> Void) {
@@ -25,7 +27,7 @@ struct NetworkManager {
         
         
         // Using stored .json instead
-        let jsonObject = JSONManager.loadLocalJSONfile(withName: "teams")
+        let jsonObject = JSONManager.loadLocalJSONfile(withName: jsonFileName)
 
         // Make sure JSON is valid
         guard jsonObject != nil else {
