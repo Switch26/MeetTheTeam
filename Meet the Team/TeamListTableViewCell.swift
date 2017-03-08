@@ -45,6 +45,7 @@ class TeamListTableViewCell: UITableViewCell {
     func constructUI() {
     
         //Image View
+        avatarImageView.image = #imageLiteral(resourceName: "avatarGenericSmall")
         imageViewHeightConstraint = avatarImageView.heightAnchor.constraint(equalToConstant: imageHeightAndWidth)
         imageViewHeightConstraint?.isActive = true
         

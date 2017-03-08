@@ -19,6 +19,11 @@ enum NetworkManagerError: Error {
 
 let jsonFileName = "team" // just the name (no .json needed)
 
+let imageCache = AutoPurgingImageCache(
+    memoryCapacity: UInt64(50).megabytes(),
+    preferredMemoryUsageAfterPurge: UInt64(35).megabytes()
+)
+
 struct NetworkManager {
     
     static func fetchTeamMembers(completionHandler: (_ arrayOfTeamMembers: [TeamMember], NetworkManagerError?) -> Void) {
@@ -45,21 +50,24 @@ struct NetworkManager {
         completionHandler(arrayOfTeamMembersToReturn, nil)
     }
     
-    // Didn't use = went with AlamofireImage category
-    static func downloadImage(atURL givenURL: String, completionHandler: @escaping (_ image: UIImage?, NetworkManagerError?) -> Void) {
+    
+    static func downloadImage(atURL givenURL: String, forIdentifier id: String, completionHandler: @escaping (_ image: UIImage?) -> Void) {
         
+        // Check in Cache first
+        if let existingImage = imageCache.image(withIdentifier: id) {
+            completionHandler(existingImage)
+            return
+        }
+        
+        // Download
         Alamofire.request(givenURL).responseImage { response in
-            
             if let image = response.result.value {
-                print("Downloaded image \(image)")
-                completionHandler(image, nil)
+                imageCache.add(image, withIdentifier: id)
+                completionHandler(image)
             }
         }
     }
-    
-    
 }
-
 
 
 struct JSONManager {

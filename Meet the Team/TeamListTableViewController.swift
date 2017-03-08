@@ -72,9 +72,25 @@ class TeamListTableViewController: UITableViewController {
         
         // Configure image
         if let url = teamMember.avatarURL {
+//            NetworkManager.downloadImage(atURL: url, completionHandler: { avatarImage in
+//                DispatchQueue.main.async {
+//                    guard avatarImage != nil else {
+//                        return
+//                    }
+//                    cell.avatarImageView.image = avatarImage!
+//                }
+//            })
             
-            // Using AlamofireImage category
-            cell.avatarImageView.af_setImage(withURL: URL(string: url)!, placeholderImage: #imageLiteral(resourceName: "avatarGenericSmall"), imageTransition: .crossDissolve(0.2))
+            NetworkManager.downloadImage(atURL: url, forIdentifier: teamMember.id, completionHandler: { avatarImage in
+                DispatchQueue.main.async {
+                    guard avatarImage != nil else {
+                        return
+                    }
+                    cell.avatarImageView.image = avatarImage!
+                }
+            })
+            
+            
         }
         
         return cell
