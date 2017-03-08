@@ -12,8 +12,7 @@ class TeamMemberDetailsBioCell: UITableViewCell {
     
     var bioLabel = UILabel()
     var bioText = UILabel()
-    var textLabelsStackView = UIStackView()
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -24,7 +23,7 @@ class TeamMemberDetailsBioCell: UITableViewCell {
         constructUI()
     }
     
-    func constructUI() {
+    private func constructUI() {
         
         //Text Labels
         bioLabel.font = UIFont(name: "HelveticaNeue-Light", size: 14)
@@ -35,6 +34,7 @@ class TeamMemberDetailsBioCell: UITableViewCell {
         bioText.textAlignment = .left
         
         // StackViews
+        let textLabelsStackView = UIStackView()
         textLabelsStackView.axis = UILayoutConstraintAxis.vertical
         textLabelsStackView.alignment = .leading
         textLabelsStackView.distribution = UIStackViewDistribution.fill
@@ -47,9 +47,9 @@ class TeamMemberDetailsBioCell: UITableViewCell {
         
         textLabelsStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        let topConstraint = NSLayoutConstraint(item: textLabelsStackView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self.contentView, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 8)
+        let topConstraint = NSLayoutConstraint(item: textLabelsStackView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self.contentView, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 4)
         
-        let leftConstraint = NSLayoutConstraint(item: textLabelsStackView, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: self.contentView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 8)
+        let leftConstraint = NSLayoutConstraint(item: textLabelsStackView, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: self.contentView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 16)
         
         let bottomConstraint = NSLayoutConstraint(item: textLabelsStackView, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: self.contentView, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: -8)
         

@@ -13,10 +13,9 @@ class TeamListTableViewCell: UITableViewCell {
     let avatarImageView = UIImageView()
     var line1TextLabel = UILabel()
     var line2TextLabel = UILabel()
-    var textLabelsStackView = UIStackView()
     
-    var imageViewHeightConstraint: NSLayoutConstraint?
-    var imageViewWidthConstraint: NSLayoutConstraint?
+    private var imageViewHeightConstraint: NSLayoutConstraint?
+    private var imageViewWidthConstraint: NSLayoutConstraint?
     
     var imageHeightAndWidth = CGFloat(50) {
         didSet {
@@ -42,7 +41,7 @@ class TeamListTableViewCell: UITableViewCell {
         constructUI()
     }
     
-    func constructUI() {
+    private func constructUI() {
     
         //Image View
         avatarImageView.image = #imageLiteral(resourceName: "avatarGenericSmall")
@@ -64,6 +63,7 @@ class TeamListTableViewCell: UITableViewCell {
         line2TextLabel.textAlignment = .left
         
         // StackViews
+        let textLabelsStackView = UIStackView()
         textLabelsStackView.axis = UILayoutConstraintAxis.vertical
         textLabelsStackView.alignment = .leading
         textLabelsStackView.distribution = UIStackViewDistribution.fill
@@ -71,7 +71,6 @@ class TeamListTableViewCell: UITableViewCell {
         
         textLabelsStackView.addArrangedSubview(line1TextLabel)
         textLabelsStackView.addArrangedSubview(line2TextLabel)
-        
         
         let imageAndTextLabelsStackView = UIStackView()
         imageAndTextLabelsStackView.axis = .horizontal

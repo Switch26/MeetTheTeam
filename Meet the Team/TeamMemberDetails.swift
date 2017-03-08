@@ -21,16 +21,10 @@ class TeamMemberDetails: UITableViewController {
         self.tableView.estimatedRowHeight = 44
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         tableView.allowsSelection = false
-        
-        //self.navigationController?.navigationBar.topItem?.title = "Meet FirstName"
+        tableView.separatorStyle = .none
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
+    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -53,14 +47,12 @@ class TeamMemberDetails: UITableViewController {
             cell.line2TextLabel.text  = teamMemberToDisplay.title ?? ""
             
             cell.imageHeightAndWidth = CGFloat(100)
-            cell.textLabelsStackView.distribution = UIStackViewDistribution.fillProportionally
             cell.avatarImageView.image = avatarImage
             
             return cell
 
         case 1:
             let cell = TeamMemberDetailsBioCell()
-            cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0)
             
             if let bio = teamMemberToDisplay.bio {
                 cell.bioLabel.text = "Bio:"

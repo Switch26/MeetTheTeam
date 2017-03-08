@@ -14,6 +14,7 @@
 		9E629D051E6EEAC20008804D /* TeamListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E629D041E6EEAC20008804D /* TeamListTableViewController.swift */; };
 		9E8357FC1E6F60BF0075E7D4 /* TeamMemberDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8357FB1E6F60BF0075E7D4 /* TeamMemberDetails.swift */; };
 		9E8358001E70536A0075E7D4 /* TeamMemberDetailsBioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8357FF1E70536A0075E7D4 /* TeamMemberDetailsBioCell.swift */; };
+		9E8358261E707A4B0075E7D4 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8358251E707A4B0075E7D4 /* JSONManager.swift */; };
 		9EB8488F1E6EF00000E74CC1 /* team.json in Resources */ = {isa = PBXBuildFile; fileRef = 9EB8488E1E6EF00000E74CC1 /* team.json */; };
 		9EB848911E6EF07600E74CC1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB848901E6EF07600E74CC1 /* NetworkManager.swift */; };
 		9EB848931E6EF1A000E74CC1 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB848921E6EF1A000E74CC1 /* TeamMember.swift */; };
@@ -32,6 +33,7 @@
 		9E629D041E6EEAC20008804D /* TeamListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamListTableViewController.swift; sourceTree = "<group>"; };
 		9E8357FB1E6F60BF0075E7D4 /* TeamMemberDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamMemberDetails.swift; sourceTree = "<group>"; };
 		9E8357FF1E70536A0075E7D4 /* TeamMemberDetailsBioCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamMemberDetailsBioCell.swift; sourceTree = "<group>"; };
+		9E8358251E707A4B0075E7D4 /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		9EB8488E1E6EF00000E74CC1 /* team.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = team.json; sourceTree = "<group>"; };
 		9EB848901E6EF07600E74CC1 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9EB848921E6EF1A000E74CC1 /* TeamMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
@@ -90,9 +92,9 @@
 		9E629CF11E6EE6930008804D /* Meet the Team */ = {
 			isa = PBXGroup;
 			children = (
-				9EB848901E6EF07600E74CC1 /* NetworkManager.swift */,
-				9EB848921E6EF1A000E74CC1 /* TeamMember.swift */,
 				9E0E1B9D1E6F03A5000CE207 /* Extensions.swift */,
+				9E8358271E707A830075E7D4 /* Networking */,
+				9E8358281E707A8C0075E7D4 /* Model */,
 				9E8357FD1E6F61240075E7D4 /* Team ViewControllers */,
 				9E629CF91E6EE6930008804D /* Assets.xcassets */,
 				9E629CF21E6EE6930008804D /* AppDelegate.swift */,
@@ -120,6 +122,23 @@
 				9E8357FF1E70536A0075E7D4 /* TeamMemberDetailsBioCell.swift */,
 			);
 			name = "Detail ViewController";
+			sourceTree = "<group>";
+		};
+		9E8358271E707A830075E7D4 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				9EB848901E6EF07600E74CC1 /* NetworkManager.swift */,
+				9E8358251E707A4B0075E7D4 /* JSONManager.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		9E8358281E707A8C0075E7D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9EB848921E6EF1A000E74CC1 /* TeamMember.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +273,7 @@
 				9EB848931E6EF1A000E74CC1 /* TeamMember.swift in Sources */,
 				9EE6F7D01E6F095300EE120B /* TeamListTableViewCell.swift in Sources */,
 				9E629CF31E6EE6930008804D /* AppDelegate.swift in Sources */,
+				9E8358261E707A4B0075E7D4 /* JSONManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

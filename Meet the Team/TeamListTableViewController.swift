@@ -10,7 +10,7 @@ import UIKit
 
 class TeamListTableViewController: UITableViewController {
     
-    var dataSource = [TeamMember]() {
+    private var dataSource = [TeamMember]() {
         didSet {
             tableView.reloadData()
         }
@@ -47,7 +47,7 @@ class TeamListTableViewController: UITableViewController {
     }
 
     
-    func fetchTeamMembersData() {
+    private func fetchTeamMembersData() {
         NetworkManager.fetchTeamMembers { (arrayOfTeamMembers, error) in
             DispatchQueue.main.async {
                 guard error == nil else {
@@ -61,6 +61,7 @@ class TeamListTableViewController: UITableViewController {
     
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "teamMemberCell", for: indexPath) as! TeamListTableViewCell
 
         // Configure text
@@ -72,15 +73,6 @@ class TeamListTableViewController: UITableViewController {
         
         // Configure image
         if let url = teamMember.avatarURL {
-//            NetworkManager.downloadImage(atURL: url, completionHandler: { avatarImage in
-//                DispatchQueue.main.async {
-//                    guard avatarImage != nil else {
-//                        return
-//                    }
-//                    cell.avatarImageView.image = avatarImage!
-//                }
-//            })
-            
             NetworkManager.downloadImage(atURL: url, forIdentifier: teamMember.id, completionHandler: { avatarImage in
                 DispatchQueue.main.async {
                     guard avatarImage != nil else {
@@ -89,14 +81,13 @@ class TeamListTableViewController: UITableViewController {
                     cell.avatarImageView.image = avatarImage!
                 }
             })
-            
-            
         }
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let detailsViewController = TeamMemberDetails()
         detailsViewController.teamMemberToDisplay = dataSource[indexPath.row]
         
