@@ -42,8 +42,7 @@ class TeamMemberDetails: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
+
         switch indexPath.row {
         case 0:
             let cell = TeamListTableViewCell()
@@ -59,11 +58,21 @@ class TeamMemberDetails: UITableViewController {
             
             return cell
 
+        case 1:
+            let cell = TeamMemberDetailsBioCell()
+            cell.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0)
+            
+            if let bio = teamMemberToDisplay.bio {
+                cell.bioLabel.text = "Bio:"
+                cell.bioText.text = bio
+            }
+            
+            return cell
+            
         default:
             let cell = UITableViewCell()
             return cell
         }
-        
     }
 
 }
