@@ -1,6 +1,7 @@
 # Meet the Team project
 
 This is an assignment. I was given 24 hours to write this smiple app and the only thing that was provided to me is `team.json` file. All links to photos were located in the file.
+Another requirement was: not using storyboards or .XIB files to design UI. It has to be all done in code.
 
 To launch the project, use `Meet the Team.xcworkspace` (not `Meet the Team.xcodeproj` because I am using Cocoapods)
 
