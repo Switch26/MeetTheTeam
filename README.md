@@ -1,9 +1,12 @@
-# MEET THE TEAM assigment for Coffee Meets Bagel
+# Meet the Team project
 
-Hi guys, thank you very much for the opportunity. I really ejoyed this simple coding task and I hope that you like what I've done :)'
+This is an assignment. I was given 24 hours to write this smiple app and the only thing that was provided to me is `team.json` file. All links to photos were located in the file.
 
 To launch the project, use `Meet the Team.xcworkspace` (not `Meet the Team.xcodeproj` because I am using Cocoapods)
 
+## Screenshots
+![screenshot1](/screenshots/screen1.png "screenshot1")
+![screenshot2](/screenshots/screen2.png "screenshot2")
 
 ## Implementation notes:
 
